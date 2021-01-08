@@ -14,7 +14,7 @@ const NewTodoForm = ({ addTodo }) => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addTodo(formData);
+		addTodo({ ...formData });
 		setFormData(INITIAL_STATE);
 	};
 	return (

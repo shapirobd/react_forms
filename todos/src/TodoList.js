@@ -8,7 +8,7 @@ const TodoList = () => {
 	const [todos, setTodos] = useState(INITIAL_STATE);
 	const addTodo = (todo) => {
 		const { task } = todo;
-		setTodos((todos) => [...todos, { task, id: uuid() }]);
+		setTodos((todos) => [...todos, { task, id: uuid(), completed: false }]);
 	};
 	const removeTodo = (todo) => {
 		setTodos(todos.filter((t) => t.id !== todo.id));
@@ -22,6 +22,16 @@ const TodoList = () => {
 			})
 		);
 	};
+	const completeTodo = (todo) => {
+		setTodos(
+			todos.map((t) => {
+				if (todo.id === t.id) {
+					return { ...todo, completed: true };
+				}
+			})
+		);
+	};
+	console.log(todos);
 	return (
 		<div className="TodoList">
 			<NewTodoForm addTodo={addTodo} />
@@ -34,6 +44,8 @@ const TodoList = () => {
 								removeTodo(todo);
 							}}
 							editTodo={editTodo}
+							completeTodo={() => completeTodo(todo)}
+							completed={todo.completed}
 							key={todo.id}
 						/>
 					))}
