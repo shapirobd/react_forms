@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./EditTodoForm.css";
 
 const EditTodoForm = ({
 	editTodo,
@@ -24,8 +25,7 @@ const EditTodoForm = ({
 		toggleEditFormVisibility();
 	};
 	return (
-		<div className="NewTodoForm" style={{ display: visibility }}>
-			<h4>Edit Todo</h4>
+		<div className="EditTodoForm" style={{ display: visibility }}>
 			<form onSubmit={handleSubmit}>
 				<input
 					type="text"

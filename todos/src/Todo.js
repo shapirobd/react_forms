@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import EditTodoForm from "./EditTodoForm";
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
+import Collapse from "@material-ui/core/Collapse";
+
+import "./Todo.css";
 
 const Todo = ({ task, removeTodo, editTodo, completeTodo, completed }) => {
+	const [open, setOpen] = React.useState(false);
+
 	const EDIT_FORM_INITIAL_STATE = "none";
 	const COMPLETE_BTN_INITIAL_STATE = "Mark as Completed";
 	const TODO_STRIKE_INITIAL_STATE = "none";
@@ -13,8 +20,9 @@ const Todo = ({ task, removeTodo, editTodo, completeTodo, completed }) => {
 	);
 	const [todoStrike, setTodoStrike] = useState(TODO_STRIKE_INITIAL_STATE);
 	const toggleEditFormVisibility = () => {
+		setOpen(!open);
 		setEditFormVisibility((editFormVisibility) =>
-			editFormVisibility === "none" ? "block" : "none"
+			editFormVisibility === "none" ? "inline-block" : "none"
 		);
 	};
 	const toggleCompleteBtnText = () => {
@@ -34,18 +42,43 @@ const Todo = ({ task, removeTodo, editTodo, completeTodo, completed }) => {
 		toggleCompleteBtnText();
 	};
 	return (
-		<div className="Todo">
-			<p style={{ textDecoration: todoStrike }}>{task}</p>
-			<button onClick={removeTodo}>X</button>
-			<button onClick={toggleEditFormVisibility}>Edit</button>
-			<button onClick={handleCompleteBtnClick}>{completeBtnText}</button>
-			<EditTodoForm
-				toggleEditFormVisibility={toggleEditFormVisibility}
-				visibility={editFormVisibility}
-				editTodo={editTodo}
-				originalTodo={task}
-			/>
-		</div>
+		<>
+			<TableRow className="Todo">
+				<TableCell>
+					<p style={{ textDecoration: todoStrike }}>{task}</p>
+				</TableCell>
+				<TableCell>
+					<button className="Todo-edit-btn" onClick={toggleEditFormVisibility}>
+						Edit
+					</button>
+				</TableCell>
+				<TableCell>
+					<button className="Todo-remove-btn" onClick={removeTodo}>
+						X
+					</button>
+				</TableCell>
+				<TableCell>
+					<button
+						className="Todo-complete-btn"
+						onClick={handleCompleteBtnClick}
+					>
+						{completeBtnText}
+					</button>
+				</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+					<Collapse in={open} timeout="auto" unmountOnExit>
+						<EditTodoForm
+							toggleEditFormVisibility={toggleEditFormVisibility}
+							visibility={editFormVisibility}
+							editTodo={editTodo}
+							originalTodo={task}
+						/>
+					</Collapse>
+				</TableCell>
+			</TableRow>
+		</>
 	);
 };
 

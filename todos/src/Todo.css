@@ -1,0 +1,15 @@
+.Todo-remove-btn {
+	text-align: right;
+}
+.Todo-edit-btn {
+	text-align: right;
+	margin-right: 10px;
+}
+.Todo-complete-btn {
+	text-align: right;
+}
+
+.Todo-edit-form {
+	width: 100%;
+	background-color: #e4e0de;
+}

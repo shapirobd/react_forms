@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./NewTodoForm.css";
 
 const NewTodoForm = ({ addTodo }) => {
 	const INITIAL_STATE = {
