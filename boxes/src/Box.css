@@ -1,0 +1,17 @@
+.Box {
+	margin-right: 5px;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.Box-container {
+	margin: 5px auto;
+	height: fit-content;
+}
+
+.Box-btn {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
