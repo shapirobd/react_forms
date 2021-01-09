@@ -48,7 +48,6 @@ const TodoList = () => {
 			})
 		);
 	};
-	console.log(todos);
 	return (
 		<div className="TodoList">
 			<NewTodoForm addTodo={addTodo} />

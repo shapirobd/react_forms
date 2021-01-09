@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`has a p element that contains task 1`] = `
+<DocumentFragment>
+  <div
+    class="Todo"
+  >
+    <p
+      class="Todo-task"
+      style="text-decoration: none;"
+    />
+    <button
+      class="Todo-edit-btn"
+    >
+      Edit
+    </button>
+    <button
+      class="Todo-remove-btn"
+    >
+      X
+    </button>
+    <button
+      class="Todo-complete-btn"
+    >
+      Mark as Completed
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Todo"
+  >
+    <p
+      class="Todo-task"
+      style="text-decoration: none;"
+    />
+    <button
+      class="Todo-edit-btn"
+    >
+      Edit
+    </button>
+    <button
+      class="Todo-remove-btn"
+    >
+      X
+    </button>
+    <button
+      class="Todo-complete-btn"
+    >
+      Mark as Completed
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -12,6 +12,7 @@ const Todo = ({ task, removeTodo, editTodo, completeTodo, completed }) => {
 	const EDIT_FORM_INITIAL_STATE = "none";
 	const COMPLETE_BTN_INITIAL_STATE = "Mark as Completed";
 	const TODO_STRIKE_INITIAL_STATE = "none";
+
 	const [editFormVisibility, setEditFormVisibility] = useState(
 		EDIT_FORM_INITIAL_STATE
 	);
@@ -42,10 +43,12 @@ const Todo = ({ task, removeTodo, editTodo, completeTodo, completed }) => {
 		toggleCompleteBtnText();
 	};
 	return (
-		<>
-			<TableRow className="Todo">
+		<div className="Todo">
+			<TableRow>
 				<TableCell>
-					<p style={{ textDecoration: todoStrike }}>{task}</p>
+					<p className="Todo-task" style={{ textDecoration: todoStrike }}>
+						{task}
+					</p>
 				</TableCell>
 				<TableCell>
 					<button className="Todo-edit-btn" onClick={toggleEditFormVisibility}>
@@ -78,7 +81,7 @@ const Todo = ({ task, removeTodo, editTodo, completeTodo, completed }) => {
 					</Collapse>
 				</TableCell>
 			</TableRow>
-		</>
+		</div>
 	);
 };
 

@@ -6,6 +6,7 @@ const Box = ({ color, width, height, handleDelete }) => {
 		<div className="Box-container">
 			<div
 				className="Box"
+				role="box"
 				style={{ backgroundColor: color, width: width, height: height }}
 			></div>
 			<button className="Box-btn" onClick={handleDelete}>
